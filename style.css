@@ -1,0 +1,54 @@
+/* Define the styles for the body of the page */
+body {
+    background-color: #1a1a1a; /* Dark gray color */
+    color: #f2f2f2; /* Light gray color */
+    font-family: Comic Sans MS, cursive, sans-serif;
+    font-size: 4em; /* Large font size */
+    text-align: center; /* Center align text */
+    padding-top: 40vh; /* Vertical center align */
+  }
+  
+  /* Define the styles for the loading dots */
+  .dots-wrapper {
+    margin-top: 1em; /* Add some space between text and dots */
+    display: flex;
+    justify-content: center; /* Center dots horizontally */
+  }
+  
+  .loader {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px; /* Add some space between dots */
+    animation: pulse 1s ease-in-out infinite;
+  }
+  
+  .loader:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .loader:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loader:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  /* Define the animation keyframes for the loading dots */
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.7;
+    }
+  }
+  
