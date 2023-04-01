@@ -22,6 +22,7 @@ body {
     border-radius: 50%;
     margin: 0 5px; /* Add some space between dots */
     animation: pulse 1s ease-in-out infinite;
+    background-color: #fff; /* White color */
   }
   
   .loader:nth-child(1) {
