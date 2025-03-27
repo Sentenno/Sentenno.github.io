@@ -15,10 +15,10 @@ function generateBingoGrid() {
             let num;
             // Generate a unique random number for each cell
             do {
-                num = "des"
+                num = 1
             } while (usedNumbers.has(num));
             usedNumbers.add(num);
-            grid[i][j] = "num";
+            grid[i][j] = 1;
         }
     }
 
