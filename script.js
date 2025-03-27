@@ -18,7 +18,7 @@ function generateBingoGrid() {
                 num = Math.floor(Math.random() * 75) + 1; // Bingo numbers between 1 and 75
             } while (usedNumbers.has(num));
             usedNumbers.add(num);
-            grid[i][j] = num;
+            grid[i][j] = "num";
         }
     }
 
