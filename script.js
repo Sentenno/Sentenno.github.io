@@ -15,7 +15,7 @@ function generateBingoGrid() {
             let num;
             // Generate a unique random number for each cell
             do {
-                num = Math.floor(Math.random() * 75) + 1; // Bingo numbers between 1 and 75
+                num = "des"
             } while (usedNumbers.has(num));
             usedNumbers.add(num);
             grid[i][j] = "num";
