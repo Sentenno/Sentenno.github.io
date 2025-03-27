@@ -12,17 +12,45 @@ function generateBingoGrid() {
         const cell = document.createElement('div');
         cell.classList.add('bingo-cell');
         
-        // Create a textarea element for each cell (multiline)
+        // Create a textarea element for each cell
         const editableDiv = document.createElement('textarea');
         editableDiv.setAttribute('role', 'textbox'); // Optional: better accessibility
+
+        // Add the input event listener to dynamically adjust font size
+        editableDiv.addEventListener('input', () => scaleText(editableDiv));
         
-        // Optional: Add placeholder-like content or initial value
-        // editableDiv.textContent = `B${i + 1}`; // You can prefill with some text or leave it empty
-        
+        // Call the function to scale the text immediately on load
+        scaleText(editableDiv);
+
         cell.appendChild(editableDiv);
         gridContainer.appendChild(cell);
     }
 }
+
+// Function to dynamically scale text size and adjust padding
+function scaleText(textarea) {
+    const maxHeight = textarea.offsetHeight;
+    const contentLength = textarea.value.length;
+    let padding = 5;  // Default padding value
+
+    maxFont = 32
+    minFont = 8
+    const baseFontSize = 25; // Starting font size for minimal content
+    const scaleFactor = 6; // Controls how quickly the font size decreases (higher means slower decrease)
+
+    fontSize = baseFontSize - (contentLength / scaleFactor)
+    if (fontSize < 10) {
+        fontSize = 10
+    }
+
+    // Ensure the font size is within reasonable limits
+    textarea.style.fontSize = `${fontSize}px`;
+
+    // Resize the text area to fit the content if needed (optional)
+    const lineCount = Math.ceil(contentLength / 30); // Adjust line count based on content length
+    textarea.rows = lineCount > 1 ? lineCount : 1;  // Adjust rows based on line count
+}
+
 
 
 // Function to render the Bingo grid on the page
@@ -49,13 +77,6 @@ function markCell(cell, num) {
     }
 }
 
-// Function to add a number to the called list
-function addToCalledList(num) {
-    const calledList = document.getElementById("called-list");
-    const listItem = document.createElement("li");
-    listItem.textContent = num;
-    calledList.appendChild(listItem);
-}
 
 // Start a new game
 function startNewGame() {
@@ -63,8 +84,4 @@ function startNewGame() {
     renderBingoGrid(grid);
 }
 
-// Set up the game
-//document.getElementById("new-game").addEventListener("click", startNewGame);
-
-// Initialize the game with a grid
 startNewGame();
