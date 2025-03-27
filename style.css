@@ -19,33 +19,76 @@ body {
 
 #bingo-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
+  gap: 10px;
+  max-width: 800px; /* Maximum width of the grid */
+  margin: 20px auto;
 }
 
 .bingo-cell {
-  width: 60px;
-  height: 60px;
-  background-color: #ffeb3b;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+  /* border: 8px solid #c7480d; /* Dark border for better visibility */
+  border-radius: 10px; /* Rounded corners */
+  height: 100px;
+  width: calc(100*1.7); /* Ensures the cell takes full width of the grid */
+  font-size: 18px; /* Custom font size */
+  background-color: #27e26f; /* Light background color */
+  font-family: 'Arial', sans-serif; /* Custom font family */
+  padding: 5px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  overflow-wrap: break-word; /* Ensure long words break onto the next line */
+  word-wrap: break-word; /* For legacy support */
+}
+
+textarea {
+  background: transparent;
+  width: 100%;
+  height: 56%;
+  resize: none; /* Disable resizing */
+  text-align: center;
+  border: 0px solid #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.bingo-cell[contenteditable="true"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Make sure the contenteditable div stretches fully inside the cell */
+  min-height: 30px; /* Ensure a minimum height */
+  text-align: center;
+  outline: none;
+  padding: 5px;
+}
+
+/* Hover effect for the cells */
+.bingo-cell:hover {
+  background-color: #73ff00; /* Change background color on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Styling for input field */
+.bingo-cell input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
   font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  font-family: 'Arial', sans-serif; /* Same font for input text */
+  background-color: transparent; /* No background for input field */
+  box-sizing: border-box;
+  padding: 5px;
 }
 
-.bingo-cell.marked {
-  background-color: #8bc34a;
-  color: white;
-}
-
-#called-numbers {
-  margin-top: 20px;
+/* Optional: Focus effect when input is clicked */
+.bingo-cell input:focus {
+  outline: none;
+  border: 2px solid #007bff; /* Blue border when focused */
 }
 
 button {

@@ -3,27 +3,27 @@
 // Array to hold the Bingo grid values
 const bingoNumbers = [];
 
-// Function to generate a Bingo grid with random numbers
 function generateBingoGrid() {
-    const grid = [];
-    const usedNumbers = new Set();
-
-    // Loop to fill the grid
-    for (let i = 0; i < 5; i++) {
-        grid[i] = [];
-        for (let j = 0; j < 5; j++) {
-            let num;
-            // Generate a unique random number for each cell
-            do {
-                num = 1; // Bingo numbers between 1 and 75
-            } while (usedNumbers.has(num));
-            //usedNumbers.add(num);
-            grid[i][j] = num;
-        }
+    const gridContainer = document.getElementById('bingo-grid');
+    gridContainer.innerHTML = ''; // Clear any existing grid
+  
+    // Loop to create 5x5 grid
+    for (let i = 0; i < 25; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('bingo-cell');
+        
+        // Create a textarea element for each cell (multiline)
+        const editableDiv = document.createElement('textarea');
+        editableDiv.setAttribute('role', 'textbox'); // Optional: better accessibility
+        
+        // Optional: Add placeholder-like content or initial value
+        // editableDiv.textContent = `B${i + 1}`; // You can prefill with some text or leave it empty
+        
+        cell.appendChild(editableDiv);
+        gridContainer.appendChild(cell);
     }
-
-    return grid;
 }
+
 
 // Function to render the Bingo grid on the page
 function renderBingoGrid(grid) {
@@ -59,10 +59,8 @@ function addToCalledList(num) {
 
 // Start a new game
 function startNewGame() {
-    const grid = generateBingoGrid();
+    generateBingoGrid();
     renderBingoGrid(grid);
-    const calledList = document.getElementById("called-list");
-    calledList.innerHTML = ''; // Clear previous called numbers
 }
 
 // Set up the game
