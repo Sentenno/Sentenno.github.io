@@ -50,10 +50,12 @@ textarea {
   resize: none; /* Disable resizing */
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 32px;
-  padding: 5px;
+  font-size: 16px;
+  padding: 0px;
   box-sizing: border-box; /* To include padding in width/height calculations */
 }
+
+
 
 .bingo-cell[contenteditable="true"] {
   display: flex;
