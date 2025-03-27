@@ -15,9 +15,9 @@ function generateBingoGrid() {
             let num;
             // Generate a unique random number for each cell
             do {
-                num = 1
+                num = 1; // Bingo numbers between 1 and 75
             } while (usedNumbers.has(num));
-            usedNumbers.add(num);
+            //usedNumbers.add(num);
             grid[i][j] = num;
         }
     }
@@ -66,7 +66,7 @@ function startNewGame() {
 }
 
 // Set up the game
-document.getElementById("new-game").addEventListener("click", startNewGame);
+//document.getElementById("new-game").addEventListener("click", startNewGame);
 
 // Initialize the game with a grid
 startNewGame();
